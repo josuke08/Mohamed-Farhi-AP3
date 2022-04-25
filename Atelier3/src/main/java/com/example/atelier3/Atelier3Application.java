@@ -2,10 +2,13 @@ package com.example.atelier3;
 
 import com.example.atelier3.Entites.Patient;
 import com.example.atelier3.Repositories.PatientRepository;
+import com.example.atelier3.Security.service.SecurityService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Date;
 
@@ -30,6 +33,27 @@ public class Atelier3Application {
             patientRepository.findAll().forEach(p -> {
                 System.out.println(p.getNom());
             });
+        };
+    }
+
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+    //@Bean
+    CommandLineRunner saveUsers(SecurityService securityService){
+        return args -> {
+            securityService.saveNewUser("mohamed", "1234", "1234");
+            securityService.saveNewUser("momo", "1234", "1234");
+            securityService.saveNewUser("sut", "1234", "1234");
+
+            securityService.saveNewRole("USER", "");
+            securityService.saveNewRole("ADMIN", "");
+
+            securityService.addRoleToUser("mohamed", "USER");
+            securityService.addRoleToUser("mohamed", "ADMIN");
+            securityService.addRoleToUser("momo", "USER");
+            securityService.addRoleToUser("sut", "USER");
         };
     }
 
