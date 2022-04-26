@@ -19,4 +19,12 @@ public class AppUser {
     private boolean active;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<AppRole> appRoles = new ArrayList<>();
+
+    public boolean containsRole(AppRole role) {
+        for(AppRole r: this.appRoles){
+            if (r.getRoleName().equals(role.getRoleName()))
+                return true;
+        }
+        return false;
+    }
 }

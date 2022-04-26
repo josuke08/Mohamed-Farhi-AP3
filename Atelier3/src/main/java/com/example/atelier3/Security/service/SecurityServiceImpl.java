@@ -52,7 +52,8 @@ public class SecurityServiceImpl implements SecurityService {
         AppRole appRole = appRoleRepository.findByRoleName(roleName);
         if(appRole == null) throw new RuntimeException("Role " + roleName + " doesn't exists");
 
-        appUser.getAppRoles().add(appRole);
+        if(!appUser.containsRole(appRole))
+            appUser.getAppRoles().add(appRole);
 
     }
 
