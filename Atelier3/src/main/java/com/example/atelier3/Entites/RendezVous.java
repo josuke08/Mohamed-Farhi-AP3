@@ -17,4 +17,8 @@ public class RendezVous {
     @DateTimeFormat(pattern = "yyy-MM-dd")
     private Date date;
     private String description;
+    @OneToOne(fetch = FetchType.EAGER)
+    private Medecin medecin;
+    @OneToOne(fetch = FetchType.EAGER)
+    private Patient patient;
 }

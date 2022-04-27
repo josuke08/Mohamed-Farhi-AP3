@@ -27,8 +27,6 @@ import java.util.List;
 public class PatientController {
     @Autowired
     private PatientRepository patientRepository;
-    /*@Autowired
-    private MedecinRepository medecinRepository;*/
 
     @GetMapping(path = "/user/index")
     public String patients(Model model,

@@ -28,7 +28,5 @@ public class Patient {
     private boolean malade;
     @DecimalMin("100")
     private int score;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<RendezVous> rendezVous = new ArrayList<>();
 
 }

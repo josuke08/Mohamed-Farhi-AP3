@@ -22,6 +22,4 @@ public class Medecin {
     private String cin;
     @NotEmpty
     private String specialite;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<RendezVous> rendezVous = new ArrayList<>();
 }

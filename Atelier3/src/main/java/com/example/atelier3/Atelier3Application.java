@@ -26,13 +26,13 @@ public class Atelier3Application {
     CommandLineRunner CommandLineRunner(PatientRepository patientRepository){
         return args -> {
             patientRepository.save(
-                    new Patient(null, "manal","waadmgsddal54", new Date(), false, 120, new ArrayList<>()));
+                    new Patient(null, "manal","waadmgsddal54", new Date(), false, 120));
             patientRepository.save(
-                    new Patient(null, "Mohadmed", "waadmdddgsgl54", new Date(), true, 120, new ArrayList<>()));
+                    new Patient(null, "Mohadmed", "waadmdddgsgl54", new Date(), true, 120));
             patientRepository.save(
-                    new Patient(null, "Yazid", "waadfmqdlsgsg54", new Date(), true, 120, new ArrayList<>()));
+                    new Patient(null, "Yazid", "waadfmqdlsgsg54", new Date(), true, 120));
             patientRepository.save(
-                    new Patient(null, "salos", "waagddsgdmdl54", new Date(), false, 120, new ArrayList<>()));
+                    new Patient(null, "salos", "waagddsgdmdl54", new Date(), false, 120));
             patientRepository.findAll().forEach(p -> {
                 System.out.println(p.getNom());
             });
@@ -64,13 +64,13 @@ public class Atelier3Application {
     CommandLineRunner CommandLineRunner(MedecinRepository medecinRepository) {
         return args -> {
             medecinRepository.save(
-                new Medecin(null, "Hippocrate", "ksakdsl", "cardiologie", new ArrayList<>()));
+                new Medecin(null, "Hippocrate", "ksakdsl", "cardiologie"));
             medecinRepository.save(
-                    new Medecin(null, "TrishPaytas", "kssadld", "cardiologie", new ArrayList<>()));
+                    new Medecin(null, "TrishPaytas", "kssadld", "cardiologie"));
             medecinRepository.save(
-                    new Medecin(null, "Frank", "ksaqsld", "cardiologie", new ArrayList<>()));
+                    new Medecin(null, "Frank", "ksaqsld", "cardiologie"));
             medecinRepository.save(
-                    new Medecin(null, "Sutton", "fassdl", "cardiologie", new ArrayList<>()));
+                    new Medecin(null, "Sutton", "fassdl", "cardiologie"));
         };
     }
 
